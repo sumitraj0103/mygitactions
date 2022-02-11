@@ -46,38 +46,26 @@ on:
       RESOURCE_GROUP:
         description: 'Resource Group Name'
         required: true
-        default: 'Databricks-MyProject'
-
-      # The Azure region to which to deploy your resources
-      LOCATION:
-        description: 'Azure Region'
-        required: true
-        default: 'EastUS2'
+        default: 'monoline'
 
       # This is the name of your Azure Databricks resource
       WORKSPACE_NAME:
         description: 'Databricks workspace name'
         required: true
-        default: 'Databricks-MyProject'
+        default: 'monoline-adb'
 
       # This is a KeyVault for holding the Service Principal to make Databricks API calls and to hold Databricks KeyVault backed Secrets
       KEY_VAULT_NAME:
         description: 'KeyVault name'
         required: true
-        default: 'KeyVault-MyProject'
+        default: 'monoline-kv'
 
       # This is a KeyVault for holding the Service Principal to make Databricks API calls and to hold Databricks KeyVault backed Secrets
       SUBSCRIPTION_ID:
         description: 'Azure Subscription Id'
         required: true
-        default: '00000000-0000-0000-0000-000000000000'
+        default: '0b8ec247-78c7-4124-9330-cf76462b47a3'
 
-      # Inialize the system
-      # Note: We only want to run the KeyVault ARM template once.  If you keep re-running, then you will OVERWRITE your values
-      MODE:
-        description: 'Deployment Mode (Databricks or Initialize-KeyVault)'
-        required: true
-        default: 'Databricks'
 
 
 jobs:
@@ -87,7 +75,7 @@ jobs:
   # This is packaging up the files from Git to the Artifacts files
   #############################################################
   Build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     # Checkout code
     steps:
@@ -102,40 +90,12 @@ jobs:
           dir env:
         azPSVersion: '3.1.0'
 
-    # Publish Artifact: ARM-Templates
-    - name: 'Publish Artifact: ARM-Templates' 
-      uses: actions/upload-artifact@v2
-      with:
-        name: 'ARM-Templates'
-        path: '${{ github.workspace }}/ARM-Templates'
-
-    # Publish Artifact: Databricks-Clusters
-    - name: 'Publish Artifact: Databricks-Clusters' 
-      uses: actions/upload-artifact@v2
-      with:
-        name: 'clusters'
-        path: '${{ github.workspace }}/clusters'
-
     # Publish Artifact: Databricks-Notebooks
     - name: 'Publish Artifact: Databricks-Notebooks' 
       uses: actions/upload-artifact@v2
       with:
         name: 'notebooks'
         path: '${{ github.workspace }}/notebooks'
-
-    # Publish Artifact: Databricks-Jobs
-    - name: 'Publish Artifact: Databricks-Jobs' 
-      uses: actions/upload-artifact@v2
-      with:
-        name: 'jobs'
-        path: '${{ github.workspace }}/jobs'
-
-    # Publish Artifact: Databricks-Init-Scripts
-    - name: 'Publish Artifact: Databricks-Init-Scripts' 
-      uses: actions/upload-artifact@v2
-      with:
-        name: 'init-scripts'
-        path: '${{ github.workspace }}/init-scripts'
 
     # Publish Artifact: Databricks-Deployment-Scripts
     - name: 'Publish Artifact: Databricks-Deployment-Scripts' 
@@ -150,7 +110,7 @@ jobs:
 #############################################################
   Dev:
     needs: Build
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     env:
       resourceGroupName: '${{ github.event.inputs.RESOURCE_GROUP }}-Dev'
       databricksWorkspaceName: '${{ github.event.inputs.WORKSPACE_NAME }}-Dev'
