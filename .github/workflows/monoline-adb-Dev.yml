@@ -22,7 +22,7 @@
 #   If you want to have 3 secrets (one for each environemnt)then you need to change the line of code:
 #   creds: ${{ secrets.AZURE_CREDENTIALS }} to creds: '${{ secrets.AZURE_CREDENTIALS }}-Dev' (-QA, -Prod)
 
-name: Databricks-CI-CD
+name: MonolineCICD-Dev
 
 
 # Manual trigger with parameters
