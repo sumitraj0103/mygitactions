@@ -41,24 +41,12 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v2
 
-    # Show paths
-    - name: Show paths
-      run: ls -R
-
-    # Show the environment variables for debugging
-    - name: Display Environment Variable
-      uses: azure/powershell@v1
-      with:
-        inlineScript: |
-          dir env:
-        azPSVersion: '3.1.0'
-
     # Publish Artifact: Publish: ARM-Templates
     - name: 'Publish Artifact: ARM-Templates' 
       uses: actions/upload-artifact@v2
       with:
         name: 'ARM-Templates'
-        path: '${{ github.workspace }}/ARM-Templates'
+        path: '${{ github.workspace }}/monoline-adf'
 
     # Publish Artifact: Publish: PowerShell-Scripts
     - name: 'Publish Artifact: PowerShell-Scripts' 
@@ -66,15 +54,6 @@ jobs:
       with:
         name: 'PowerShell-Scripts'
         path: '${{ github.workspace }}/PowerShell-Scripts'
-
-    - name: Checkout adf_publish branch
-      uses: actions/checkout@v2
-      with:
-        ref: adf_publish
-
-    # Show paths
-    - name: Show paths
-      run: ls -R
 
     # Publish Artifact: adf_publish files
     - name: 'Publish Artifact: adf_publish' 
