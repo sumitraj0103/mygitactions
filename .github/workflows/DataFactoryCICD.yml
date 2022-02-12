@@ -36,3 +36,16 @@ jobs:
         with:
          name: 'monoline-adf-armTemplate'
          path: '${{ github.workspace }}/monoline-adf'
+      - name: data-factory-deploy
+        uses: Azure/data-factory-deploy-action@v1.2.0
+        with:
+          # Data Factory resource group name
+          resourceGroupName: 'monolone-adf-dev'
+          # Data factory name
+          dataFactoryName: 'monolone-adf-dev'
+          # ARM template file name
+          armTemplateFile: '${{ github.workspace }}/monoline-adf/ARMTemplateForFactory.json'
+          # ARM template parameters file name
+          armTemplateParametersFile: '${{ github.workspace }}/monoline-adf/ARMTemplateParametersForFactory.json'
+          # Parameters which will be replaced in the ARM template
+       
