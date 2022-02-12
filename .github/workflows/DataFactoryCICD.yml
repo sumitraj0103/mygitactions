@@ -23,9 +23,16 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-          # Publish Artifact: Databricks-Notebooks
-      - name: 'Publish Artifact: Databricks-Notebooks' 
+          # Publish Artifact: DataFactory
+      - name: 'Publish Artifact: DataFactory' 
         uses: actions/upload-artifact@v2
         with:
          name: 'DataFactory'
          path: '${{ github.workspace }}/DataFactory'
+         
+         #Publish Artifact: monoline-adf-armTemplate 
+      - name: 'Publish Artifact: monoline-adf-armTemplate' 
+        uses: actions/upload-artifact@v2
+        with:
+         name: 'monoline-adf-armTemplate'
+         path: '${{ github.workspace }}/monoline-adf'
