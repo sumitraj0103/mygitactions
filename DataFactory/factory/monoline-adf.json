@@ -1,0 +1,9 @@
+{
+	"name": "monoline-adf",
+	"location": "westus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5709602b-f6af-413f-9d46-73b0716984e4",
+		"tenantId": "cf36141c-ddd7-45a7-b073-111f66d0b30c"
+	}
+}
