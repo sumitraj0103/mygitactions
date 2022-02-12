@@ -23,11 +23,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
-          # Publish Artifact: DataFactory
-      - name: 'Publish Artifact: DataFactory' 
+          # Publish Artifact: monoline-adf-project
+      - name: 'Publish Artifact: monoline-adf-project' 
         uses: actions/upload-artifact@v2
         with:
-         name: 'DataFactory'
+         name: 'monoline-adf-project'
          path: '${{ github.workspace }}/DataFactory'
          
          #Publish Artifact: monoline-adf-armTemplate 
