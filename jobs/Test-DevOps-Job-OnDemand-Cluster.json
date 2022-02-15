@@ -1,26 +1,25 @@
 {
-    "settings": {
-        "new_cluster": {
-            "cluster_name": "",
-            "spark_version": "9.1.x-scala2.12",
-            "azure_attributes": {
-                "availability": "ON_DEMAND_AZURE",
-                "first_on_demand": 1,
-                "spot_bid_max_price": -1
-            },
-            "node_type_id": "Standard_DS3_v2",
-            "spark_env_vars": {
-                "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
-            },
-            "enable_elastic_disk": true,
-            "num_workers": 8
+    "name": "Test-DevOps-Job-OnDemand-Cluster",
+    "new_cluster": {
+        "spark_version": "9.1.x-scala2.12",
+        "spark_conf": {
+            "spark.databricks.delta.preview.enabled": "true"
         },
-        "notebook_task": {
-            "notebook_path": "/DPDEV/testme"
+        "node_type_id": "Standard_DS3_v2",
+        "spark_env_vars": {
+            "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
         },
-        "timeout_seconds": 0,
-        "email_notifications": {},
-        "name": "testme",
-        "max_concurrent_runs": 1
-    }
+        "enable_elastic_disk": true,
+        "azure_attributes": {
+            "availability": "ON_DEMAND_AZURE"
+        },
+        "num_workers": 8
+    },
+    "email_notifications": {},
+    "timeout_seconds": 0,
+    "notebook_task": {
+        "notebook_path": "/DPDEV/testme",
+        "revision_timestamp": 0
+    },
+    "max_concurrent_runs": 1
 }
