@@ -89,7 +89,28 @@ jobs:
         inlineScript: |
           dir env:
         azPSVersion: '3.1.0'
-
+    
+    # Publish Artifact: Databricks-Notebooks
+    - name: 'Publish Artifact: Databricks-Clusters' 
+      uses: actions/upload-artifact@v2
+      with:
+        name: 'clusters'
+        path: '${{ github.workspace }}/clusters'
+        
+    # Publish Artifact: Databricks-jobs
+    - name: 'Publish Artifact: Databricks-Jobs' 
+      uses: actions/upload-artifact@v2
+      with:
+        name: 'notebooks'
+        path: '${{ github.workspace }}/jobs'
+        
+    # Publish Artifact: Databricks-init-scripts
+    - name: 'Publish Artifact: Databricks-Init-Scripts' 
+      uses: actions/upload-artifact@v2
+      with:
+        name: 'notebooks'
+        path: '${{ github.workspace }}/init-scripts'
+        
     # Publish Artifact: Databricks-Notebooks
     - name: 'Publish Artifact: Databricks-Notebooks' 
       uses: actions/upload-artifact@v2
