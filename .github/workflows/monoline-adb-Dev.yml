@@ -40,31 +40,31 @@ on:
       NOTEBOOK_DEPLOYMENT_PATH:
         description: 'Notebooks Deployment Path to Databricks'
         required: true
-        default: '/Framework'
+        default: '/DPDEV'
 
       # This resource group for the Databricks workspace and KeyVault
       RESOURCE_GROUP:
         description: 'Resource Group Name'
         required: true
-        default: 'monoline'
+        default: 'devopsdeploy-adb-dev-poc'
 
       # This is the name of your Azure Databricks resource
       WORKSPACE_NAME:
         description: 'Databricks workspace name'
         required: true
-        default: 'monoline-adb'
+        default: 'databricks-monoline-dev'
 
       # This is a KeyVault for holding the Service Principal to make Databricks API calls and to hold Databricks KeyVault backed Secrets
       KEY_VAULT_NAME:
         description: 'KeyVault name'
         required: true
-        default: 'monoline-kv'
+        default: 'keyvault-monoline-dev'
 
       # This is a KeyVault for holding the Service Principal to make Databricks API calls and to hold Databricks KeyVault backed Secrets
       SUBSCRIPTION_ID:
         description: 'Azure Subscription Id'
         required: true
-        default: '0b8ec247-78c7-4124-9330-cf76462b47a3'
+        default: '2546a5d7-a653-480f-a60a-a043b9a6f7b3'
 
 
 
