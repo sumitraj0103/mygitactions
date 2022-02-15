@@ -1,10 +1,9 @@
-{
+{       "name": "testmejob",
         "existing_cluster_id": "Small",
         "notebook_task": {
             "notebook_path": "/DPDEV/testme"
         },
         "timeout_seconds": 0,
         "email_notifications": {},
-        "name": "testmejob",
         "max_concurrent_runs": 1
 }
