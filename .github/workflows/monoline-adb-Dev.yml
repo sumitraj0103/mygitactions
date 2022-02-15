@@ -198,7 +198,7 @@ jobs:
       uses: Azure/get-keyvault-secrets@v1.0
       if: ${{ github.event.inputs.MODE == 'Databricks' }}
       with:
-        keyvault: ${{ env.keyVaultName }}
+        keyvault: ${{ github.event.inputs.KEY_VAULT_NAME }}
         secrets: 'databricks-monoline-dev-subscription-id,databricks-monoline-dev-tenant-id,databricks-monoline-dev-client-id,databricks-monoline-dev-client-secret'
       id: databricksSecretAction
 
