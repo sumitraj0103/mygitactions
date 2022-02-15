@@ -203,20 +203,20 @@ jobs:
       id: databricksSecretAction
 
     # Deploy your Databricks Init Scripts to dbfa:/init-scripts folder on DBFS
-    #- name:  Deploy your Databricks Init Scripts to dbfa:/init-scripts folder on DBFS
-      #if: ${{ github.event.inputs.MODE == 'Databricks' }}
-      #run: |
-        #cd "$GITHUB_WORKSPACE/init-scripts"
-        #chmod +x $GITHUB_WORKSPACE/deployment-scripts/deploy-init-scripts.sh
-        #$GITHUB_WORKSPACE/deployment-scripts/deploy-init-scripts.sh ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-tenant-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-secret }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-subscription-id }} ${{ env.resourceGroupName }} ${{ env.databricksWorkspaceName }}
+    - name:  Deploy your Databricks Init Scripts to dbfa:/init-scripts folder on DBFS
+      if: ${{ github.event.inputs.MODE == 'Databricks' }}
+      run: |
+        cd "$GITHUB_WORKSPACE/init-scripts"
+        chmod +x $GITHUB_WORKSPACE/deployment-scripts/deploy-init-scripts.sh
+        $GITHUB_WORKSPACE/deployment-scripts/deploy-init-scripts.sh ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-tenant-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-secret }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-subscription-id }} ${{ env.resourceGroupName }} ${{ env.databricksWorkspaceName }}
 
     # Deploy Databricks Clusters
-    #- name: Deploy Databricks Clusters
-      #if: ${{ github.event.inputs.MODE == 'Databricks' }}
-      #run: |
-        #cd "$GITHUB_WORKSPACE/clusters"
-        #chmod +x $GITHUB_WORKSPACE/deployment-scripts/deploy-clusters.sh
-        #$GITHUB_WORKSPACE/deployment-scripts/deploy-clusters.sh ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-tenant-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-secret }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-subscription-id }} ${{ env.resourceGroupName }} ${{ env.databricksWorkspaceName }}
+    - name: Deploy Databricks Clusters
+      if: ${{ github.event.inputs.MODE == 'Databricks' }}
+      run: |
+        cd "$GITHUB_WORKSPACE/clusters"
+        chmod +x $GITHUB_WORKSPACE/deployment-scripts/deploy-clusters.sh
+        $GITHUB_WORKSPACE/deployment-scripts/deploy-clusters.sh ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-tenant-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-secret }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-subscription-id }} ${{ env.resourceGroupName }} ${{ env.databricksWorkspaceName }}
 
     # Deploy Databricks Notebooks
     - name: Deploy Databricks Notebooks
@@ -227,10 +227,10 @@ jobs:
         $GITHUB_WORKSPACE/deployment-scripts/deploy-notebooks.sh ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-tenant-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-secret }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-subscription-id }} ${{ env.resourceGroupName }} ${{ env.databricksWorkspaceName }} ${{ github.event.inputs.NOTEBOOK_DEPLOYMENT_PATH }}
     
     # Deploy Databricks Jobs
-    #- name: Deploy Databricks Jobs
-      #if: ${{ github.event.inputs.MODE == 'Databricks' }}
-      #run: |
-        #cd "$GITHUB_WORKSPACE/jobs"
-        #chmod +x $GITHUB_WORKSPACE/deployment-scripts/deploy-jobs.sh
-        #$GITHUB_WORKSPACE/deployment-scripts/deploy-jobs.sh ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-tenant-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-secret }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-subscription-id }} ${{ env.resourceGroupName }} ${{ env.databricksWorkspaceName }}
+    - name: Deploy Databricks Jobs
+      if: ${{ github.event.inputs.MODE == 'Databricks' }}
+      run: |
+        cd "$GITHUB_WORKSPACE/jobs"
+        chmod +x $GITHUB_WORKSPACE/deployment-scripts/deploy-jobs.sh
+        $GITHUB_WORKSPACE/deployment-scripts/deploy-jobs.sh ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-tenant-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-secret }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-subscription-id }} ${{ env.resourceGroupName }} ${{ env.databricksWorkspaceName }}
 
