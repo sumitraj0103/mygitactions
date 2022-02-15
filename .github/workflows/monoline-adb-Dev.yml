@@ -192,10 +192,10 @@ jobs:
         creds: ${{ secrets.DEV_AZURE_CREDENTIALS }}
         # set this if you will be using PowerShell
         # enable-AzPSSession: true 
-
+    
     # Download KeyVault Secrets
     - name: Download KeyVault Secrets
-      uses: Azure/get-keyvault-secrets@v1.0
+      uses: Azure/get-keyvault-secrets@v1
       if: ${{ github.event.inputs.MODE == 'Databricks' }}
       with:
         keyvault: ${{ github.event.inputs.KEY_VAULT_NAME }}
