@@ -104,14 +104,14 @@ jobs:
     - name: 'Publish Artifact: Databricks-Jobs' 
       uses: actions/upload-artifact@v2
       with:
-        name: 'notebooks'
+        name: 'jobs'
         path: '${{ github.workspace }}/jobs'
         
     # Publish Artifact: Databricks-init-scripts
     - name: 'Publish Artifact: Databricks-Init-Scripts' 
       uses: actions/upload-artifact@v2
       with:
-        name: 'notebooks'
+        name: 'init-scripts'
         path: '${{ github.workspace }}/init-scripts'
         
     # Publish Artifact: Databricks-Notebooks
