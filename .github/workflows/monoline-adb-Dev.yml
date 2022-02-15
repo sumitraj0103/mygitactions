@@ -134,7 +134,7 @@ jobs:
 #############################################################
   Dev:
     needs: Build
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     env:
       resourceGroupName: '${{ github.event.inputs.RESOURCE_GROUP }}'
       databricksWorkspaceName: '${{ github.event.inputs.WORKSPACE_NAME }}'
