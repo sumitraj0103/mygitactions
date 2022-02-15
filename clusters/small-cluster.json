@@ -1,9 +1,15 @@
 {
-    "num_workers": 2,
-    "cluster_name": "Small",
-    "spark_version": "6.4.x-scala2.11",
-    "spark_conf": {
-        "spark.databricks.delta.preview.enabled": "true"
+    "autoscale": {
+        "min_workers": 2,
+        "max_workers": 8
+    },
+    "cluster_name": "testme3",
+    "spark_version": "9.1.x-scala2.12",
+    "spark_conf": {},
+    "azure_attributes": {
+        "first_on_demand": 1,
+        "availability": "ON_DEMAND_AZURE",
+        "spot_bid_max_price": -1
     },
     "node_type_id": "Standard_DS3_v2",
     "driver_node_type_id": "Standard_DS3_v2",
@@ -12,8 +18,9 @@
     "spark_env_vars": {
         "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
     },
-    "autotermination_minutes": 30,
+    "autotermination_minutes": 120,
     "enable_elastic_disk": true,
     "cluster_source": "UI",
-    "init_scripts": []
+    "init_scripts": [],
+    "cluster_id": "0215-063038-1ym90rgy"
 }
