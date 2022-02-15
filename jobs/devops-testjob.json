@@ -1,12 +1,10 @@
 {
-    "settings": {
-        "existing_cluster_id": "0215-101717-g0ossfq",
+        "existing_cluster_id": "Small",
         "notebook_task": {
             "notebook_path": "/DPDEV/testme"
         },
         "timeout_seconds": 0,
         "email_notifications": {},
-        "name": "testme",
+        "name": "testmejob",
         "max_concurrent_runs": 1
-    }
 }
