@@ -136,9 +136,9 @@ jobs:
     needs: Build
     runs-on: windows-latest
     env:
-      resourceGroupName: '${{ github.event.inputs.RESOURCE_GROUP }}-Dev'
-      databricksWorkspaceName: '${{ github.event.inputs.WORKSPACE_NAME }}-Dev'
-      keyVaultName: '${{ github.event.inputs.KEY_VAULT_NAME }}-Dev'
+      resourceGroupName: '${{ github.event.inputs.RESOURCE_GROUP }}'
+      databricksWorkspaceName: '${{ github.event.inputs.WORKSPACE_NAME }}'
+      keyVaultName: '${{ github.event.inputs.KEY_VAULT_NAME }}'
 
     steps:
     # Show the environment variables for debugging
