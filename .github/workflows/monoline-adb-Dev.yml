@@ -125,12 +125,6 @@ jobs:
           dir env:
         azPSVersion: '3.1.0'        
 
-    # Download Artifact: ARM-Templates
-    - name: 'Download Artifact: ARM-Templates' 
-      uses: actions/download-artifact@v2
-      with:
-        name: 'ARM-Templates'
-        path: ${{ github.workspace }}/ARM-Templates
 
     # Download Artifact: Databricks-Clusters
     - name: 'Download Artifact: Databricks-Clusters' 
@@ -171,7 +165,7 @@ jobs:
     - name: Login via Az module
       uses: azure/login@v1.1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        creds: ${{ secrets.DEV_AZURE_CREDENTIALS }}
         # set this if you will be using PowerShell
         # enable-AzPSSession: true 
 
@@ -181,7 +175,7 @@ jobs:
       if: ${{ github.event.inputs.MODE == 'Databricks' }}
       with:
         keyvault: ${{ env.keyVaultName }}
-        secrets: 'databricks-dev-ops-subscription-id,databricks-dev-ops-tenant-id,databricks-dev-ops-client-id,databricks-dev-ops-client-secret'
+        secrets: 'databricks-monoline-dev-subscription-id,databricks-monoline-dev-tenant-id,databricks-monoline-dev-client-id,databricks-monoline-dev-client-secret'
       id: databricksSecretAction
 
     # Deploy your Databricks Init Scripts to dbfa:/init-scripts folder on DBFS
