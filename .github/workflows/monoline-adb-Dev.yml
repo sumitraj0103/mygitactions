@@ -22,7 +22,7 @@
 #   If you want to have 3 secrets (one for each environemnt)then you need to change the line of code:
 #   creds: ${{ secrets.AZURE_CREDENTIALS }} to creds: '${{ secrets.AZURE_CREDENTIALS }}-Dev' (-QA, -Prod)
 
-name: MonolineCICD-Dev
+name: DataBricks-MonolineCICD-Dev
 
 
 # Manual trigger with parameters
@@ -195,11 +195,12 @@ jobs:
         #$GITHUB_WORKSPACE/deployment-scripts/deploy-clusters.sh ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-tenant-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-secret }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-subscription-id }} ${{ env.resourceGroupName }} ${{ env.databricksWorkspaceName }}
 
     # Deploy Databricks Notebooks
-    - name: Deploy Databricks Notebooks
-      if: ${{ github.event.inputs.MODE == 'Databricks' }}
-      run: |
-        cd "$GITHUB_WORKSPACE/${{ github.event.inputs.GIT_NOTEBOOK_PATH }}"
-        $GITHUB_WORKSPACE/deployment-scripts/deploy-notebooks.ps1 ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-tenant-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-secret }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-subscription-id }} ${{ env.resourceGroupName }} ${{ env.databricksWorkspaceName }} ${{ github.event.inputs.NOTEBOOK_DEPLOYMENT_PATH }}
+    #- name: Deploy Databricks Notebooks
+      #if: ${{ github.event.inputs.MODE == 'Databricks' }}
+      #run: |
+        #cd "$GITHUB_WORKSPACE/${{ github.event.inputs.GIT_NOTEBOOK_PATH }}"
+        #chmod +x $GITHUB_WORKSPACE/deployment-scripts/deploy-notebooks.sh
+        #$GITHUB_WORKSPACE/deployment-scripts/deploy-notebooks.sh1 ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-tenant-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-id }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-client-secret }} ${{ steps.databricksSecretAction.outputs.databricks-monoline-dev-subscription-id }} ${{ env.resourceGroupName }} ${{ env.databricksWorkspaceName }} ${{ github.event.inputs.NOTEBOOK_DEPLOYMENT_PATH }}
     
     # Deploy Databricks Jobs
     #- name: Deploy Databricks Jobs
