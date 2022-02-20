@@ -212,4 +212,4 @@ You shoudl set approvals on each environment so the pipeline does not deploy to 
 - What about this advice on Azure Docs: https://docs.microsoft.com/en-us/azure/databricks/dev-tools/ci-cd/ci-cd-azure-devops
    - Great reading around packaging up a Python library and deploying to a cluster
    - If you prefer Python versus Bash "deployment-scripts" then grab these for your DevOps
-   - I like how they do a test and ingest the results back into Azure Dev Ops
+   - I like how they do a test and ingest the results back into Azure Dev Ops .
